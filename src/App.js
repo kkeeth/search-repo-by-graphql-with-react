@@ -90,7 +90,7 @@ class App extends React.Component {
                       })
                     }
                   </ul>
-                  <div class="buttons">
+                  <div className="buttons">
                     {
                       search.pageInfo.hasPreviousPage === true
                         ? <button onClick={this.backPrevious.bind(this, search)}>Previous</button>
