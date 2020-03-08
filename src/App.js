@@ -3,6 +3,7 @@ import { ApolloProvider } from 'react-apollo'
 import { Query } from 'react-apollo'
 import client from './client'
 import { SEARCH_REPOSITORIES } from './graphql'
+import StarButton from './StarButton'
 
 const PER_PAGE = 5
 const DEFAULT_STATE = {
@@ -83,6 +84,8 @@ class App extends React.Component {
                         return (
                           <li key={node.id}>
                             <a href={node.url} target="_blank" rel="noopener noreferrer">{node.name}</a>
+                            &nbsp;
+                            <StarButton node={node} />
                           </li>
                         )
                       })
