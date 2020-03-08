@@ -17,20 +17,16 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = DEFAULT_STATE
-
-    this.handleChange = this.handleChange.bind(this)
+    this.myRef = React.createRef()
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleChange(e) {
-    this.setState({
-      ...DEFAULT_STATE,
-      query: e.target.value
-    })
   }
 
   handleSubmit(e) {
     e.preventDefault()
+
+    this.setState({
+      query: this.myRef.current.value
+    })
   }
 
   goNext(search) {
@@ -57,7 +53,9 @@ class App extends React.Component {
     return (
       <ApolloProvider client={client}>
         <form onSubmit={this.handleSubmit}>
-          <input value={query} onChange={this.handleChange} />
+          <input placeholder="input any repo name" ref={this.myRef} />
+          &nbsp;
+          <input type="submit" value="submit" />
         </form>
         <Query
           query={SEARCH_REPOSITORIES}
