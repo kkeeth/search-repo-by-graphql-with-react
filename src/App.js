@@ -84,7 +84,7 @@ class App extends React.Component {
                           <li key={node.id}>
                             <a href={node.url} target="_blank" rel="noopener noreferrer">{node.name}</a>
                             &nbsp;
-                            <StarButton node={node} />
+                            <StarButton {...{node, query, first, last, before, after}} />
                           </li>
                         )
                       })
