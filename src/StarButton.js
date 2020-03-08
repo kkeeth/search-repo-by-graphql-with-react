@@ -1,15 +1,15 @@
 import React from 'react'
 
 const StarButton = (props) => {
-  console.log(props.node)
-  const totalCount = props.node.stargazers.totalCount
+  const node = props.node
+  const totalCount = node.stargazers.totalCount
+  const viewerHasStarred = node.viewerHasStarred
+  const starCount = totalCount === 1
+    ? "1 star"
+    : `${totalCount} stars`
   return (
     <button>
-      {
-        totalCount === 1
-          ? "1 star"
-          : `${totalCount} stars`
-      }
+      { starCount } | { viewerHasStarred ? "starred" : "-"}
     </button>
   )
 }
