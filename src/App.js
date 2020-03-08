@@ -1,6 +1,5 @@
 import React from 'react'
-import { ApolloProvider } from 'react-apollo'
-import { Query } from 'react-apollo'
+import { ApolloProvider, Query } from 'react-apollo'
 import client from './client'
 import { SEARCH_REPOSITORIES } from './graphql'
 import StarButton from './StarButton'
