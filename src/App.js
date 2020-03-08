@@ -48,9 +48,14 @@ class App extends React.Component {
             ({ loading, error, data }) => {
               if (loading) return 'Loading...'
               if (error) return `Error! ${error.message}`
-              console.log(data.search)
+              console.log(data.search.edges)
 
-              return <div>{}</div>
+              const search = data.search
+              const repositoryCount = search.repositoryCount
+              const repositoryUnit
+                = repositoryCount === 1 ? 'Repository' : 'Repositories'
+
+              return <h2>GitHub Repositories Search Results - {repositoryCount} {repositoryUnit}</h2>
             }
           }
         </Query>
